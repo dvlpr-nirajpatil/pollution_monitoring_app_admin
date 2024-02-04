@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "210223083459",
+    "project_id": "vehiclepollutionmonitori-8c43d",
+    "storage_bucket": "vehiclepollutionmonitori-8c43d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210223083459:android:ce17b6a6a415c511b91776",
+        "android_client_info": {
+          "package_name": "com.example.rsm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASUrcasjS6raxm4GDywW_zVBAj-TOFUFA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

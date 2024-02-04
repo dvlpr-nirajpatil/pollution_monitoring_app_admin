@@ -1,0 +1,15 @@
+export 'package:flutter/material.dart';
+export 'package:get/get.dart';
+export 'package:get/get_core/src/get_main.dart';
+export 'package:provider/provider.dart';
+export 'package:rsm/consts/typography.dart';
+export 'package:rsm/controllers/auth_controller.dart';
+export 'package:rsm/views/home_screen/home_screen.dart';
+export 'package:rsm/views/shared_widgets/custom_text_field.dart';
+export 'package:velocity_x/velocity_x.dart';
+export 'package:firebase_core/firebase_core.dart';
+export 'package:rsm/consts/color_pallate.dart';
+export 'package:rsm/controllers/homescreen_controller.dart';
+export 'package:rsm/firebase_options.dart';
+export 'package:rsm/views/auth_screen/splash_screen.dart';
+export 'package:rsm/views/home_screen/home.dart';
