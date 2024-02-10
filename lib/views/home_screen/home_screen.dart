@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:rsm/consts/consts.dart';
+import 'package:rsm/controllers/challans_controller.dart';
+import 'package:rsm/views/view_challans/view_challans.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -18,14 +20,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var challanController =
+        Provider.of<ChallansController>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         centerTitle: false,
         title: "Vehicles Information".text.fontFamily(semibold).make(),
       ),
       body: Container(
         width: double.infinity,
-        padding: EdgeInsets.only(top: 10, left: 20, right: 20),
+        padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
         child: Column(
           children: [
             Row(
@@ -57,6 +62,7 @@ class HomeScreen extends StatelessWidget {
               child: StreamBuilder<QuerySnapshot>(
                 stream: FirebaseFirestore.instance
                     .collection('Vehicles')
+                    .where('vehicle_added', isEqualTo: true)
                     .snapshots(),
                 builder: (context, snapshot) {
                   if (snapshot.hasError) {
@@ -73,17 +79,32 @@ class HomeScreen extends StatelessWidget {
 
                   // Display the list of documents
                   return ListView.builder(
-                    padding: EdgeInsets.all(0),
+                    padding: const EdgeInsets.all(0),
                     itemCount: snapshot.data!.docs.length,
                     itemBuilder: (context, index) {
                       var document = snapshot.data!.docs[index];
-                      String owner_name = document['name'];
-                      String contact = document['contact_no'];
-                      String email = document['email'];
+                      String owner_name = document['username'];
+                      // String contact = document['contact_no'];
+                      String email = document['login_email'];
                       String insurance_status = document['insurance_status'];
                       String ppm = document['ppm'];
-                      String type = document['type'];
-                      String vehicle_no = document['vehicle_no'];
+                      String type = document['vehicle_type'];
+                      String vehicle_no = document['vehicle_number'];
+
+                      bool isDeviceIntall = document['device_installed'];
+
+                      if (document['challan'] == false &&
+                          double.parse(document['ppm']) > 100) {
+                        challanController.addChallanDocument(
+                            docId: document.id,
+                            name: owner_name,
+                            email: email,
+                            ppm: ppm,
+                            uid: document['uid'],
+                            vehicleName: document['vehicle_model'],
+                            vehicleNo: vehicle_no);
+                      }
+
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
@@ -94,10 +115,15 @@ class HomeScreen extends StatelessWidget {
                                   .fontFamily(semibold)
                                   .size(16)
                                   .make(),
-                              ppm.text
-                                  .fontFamily(semibold)
-                                  .color(getColor(double.parse(ppm)))
-                                  .make()
+                              isDeviceIntall
+                                  ? ppm.text
+                                      .fontFamily(semibold)
+                                      .color(getColor(double.parse(ppm)))
+                                      .make()
+                                  : "Device Not Install"
+                                      .text
+                                      .color(Colors.red)
+                                      .make(),
                             ],
                           ),
                           20.heightBox,
@@ -131,7 +157,7 @@ class HomeScreen extends StatelessWidget {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
-                                  "Insurance Status".text.make(),
+                                  "Insurance".text.make(),
                                   insurance_status.text
                                       .fontFamily(semibold)
                                       .make()
@@ -139,18 +165,6 @@ class HomeScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          20.heightBox,
-                          "Challan Pending"
-                              .text
-                              .make()
-                              .box
-                              .roundedSM
-                              .color(pendingColor)
-                              .padding(
-                                const EdgeInsets.symmetric(
-                                    horizontal: 10, vertical: 6),
-                              )
-                              .make()
                         ],
                       )
                           .box
@@ -159,7 +173,14 @@ class HomeScreen extends StatelessWidget {
                           .padding(
                             const EdgeInsets.all(16),
                           )
-                          .make();
+                          .margin(EdgeInsets.only(bottom: 15))
+                          .make()
+                          .onTap(() {
+                        challanController.selectedVehicleUid = document['uid'];
+                        Get.to(
+                          () => ViewChallans(vehicleData: document),
+                        );
+                      });
                     },
                   );
                 },

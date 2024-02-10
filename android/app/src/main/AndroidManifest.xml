@@ -1,11 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
   
-    <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyCD4pxgGh_wLf8v09IDKtQc7ARJRzzj8ks"/>
     <application
-        android:label="rsm"
+        android:label="Pollution Admin"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:enableOnBackInvokedCallback="true"
+        >
+        <meta-data android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyCD4pxgGh_wLf8v09IDKtQc7ARJRzzj8ks"/>
+       
         <activity
             android:name=".MainActivity"
             android:exported="true"

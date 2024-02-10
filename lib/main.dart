@@ -1,4 +1,5 @@
 import 'package:rsm/consts/consts.dart';
+import 'package:rsm/controllers/challans_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,6 +19,9 @@ class RSM extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => HomeScreenController(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ChallansController(),
         ),
       ],
       child: GetMaterialApp(
