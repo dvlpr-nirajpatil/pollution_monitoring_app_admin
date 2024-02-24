@@ -18,7 +18,7 @@ class ChallansController extends ChangeNotifier {
 
   Future<void> sendEmail({to, ppm, name, vehicleNumber}) async {
     try {
-      final Uri url = Uri.parse('http://3.147.78.78:80/send-email');
+      final Uri url = Uri.parse('http://18.219.13.219:80/send-email');
 
       final Map<String, dynamic> requestBody = {
         'to': to,
