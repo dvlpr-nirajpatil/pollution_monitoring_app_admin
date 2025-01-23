@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyB6vlo1OX5g-ug6oAzJrzJbTAvcA7w4TMk</string>
+	<string>AIzaSyCO_tHffNeBup3fOfEsBXwW3xmSQTS834c</string>
 	<key>GCM_SENDER_ID</key>
-	<string>210223083459</string>
+	<string>113661244563</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.rsm</string>
 	<key>PROJECT_ID</key>
-	<string>vehiclepollutionmonitori-8c43d</string>
+	<string>vehicle-pollution-monito-4fc70</string>
 	<key>STORAGE_BUCKET</key>
-	<string>vehiclepollutionmonitori-8c43d.appspot.com</string>
+	<string>vehicle-pollution-monito-4fc70.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:210223083459:ios:f75a5364a8bcde4db91776</string>
+	<string>1:113661244563:ios:7d4de417051718a3710966</string>
 </dict>
 </plist>

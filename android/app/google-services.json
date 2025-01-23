@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "210223083459",
-    "project_id": "vehiclepollutionmonitori-8c43d",
-    "storage_bucket": "vehiclepollutionmonitori-8c43d.appspot.com"
+    "project_number": "113661244563",
+    "project_id": "vehicle-pollution-monito-4fc70",
+    "storage_bucket": "vehicle-pollution-monito-4fc70.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:210223083459:android:ce17b6a6a415c511b91776",
+        "mobilesdk_app_id": "1:113661244563:android:389080d237b4355f710966",
         "android_client_info": {
           "package_name": "com.example.rsm"
         }
@@ -15,7 +15,26 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyASUrcasjS6raxm4GDywW_zVBAj-TOFUFA"
+          "current_key": "AIzaSyBRf9FggnEJIGj_uRd2FtwTM2YKsyGEO_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113661244563:android:b6785229ccec4c82710966",
+        "android_client_info": {
+          "package_name": "com.example.user"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRf9FggnEJIGj_uRd2FtwTM2YKsyGEO_w"
         }
       ],
       "services": {
